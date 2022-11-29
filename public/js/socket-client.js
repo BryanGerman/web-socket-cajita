@@ -4,6 +4,7 @@ const lblOnline  = document.querySelector("#lblOnline")
 const lblOffline = document.querySelector("#lblOffline")
 const txtMensaje = document.querySelector("#txtMensaje")
 const btnEnviar  = document.querySelector("#btnEnviar")
+const lblMensajes  = document.querySelector("#Mensajes")
 
 const socket = io();
 
@@ -20,7 +21,8 @@ socket.on('disconnect', () => {
 })
 
 socket.on('enviar-mensaje', (mensaje) => {
-    console.log(mensaje.mensaje)
+    lblMensajes.innerHTML = mensaje
+    console.log(mensaje)
 })
 
 btnEnviar.addEventListener('click', () => {
